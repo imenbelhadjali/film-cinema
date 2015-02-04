@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#connection.xhtml"
+  PATH="/pages/connection.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#connection.xhtml:0" NAME="item"
+   PATH="/pages/connection.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="accepted:#{connectionBean.connecter()}:#pages#GestionSeance.xhtml"
+    NAME="output" PATH="/pages/GestionSeance.xhtml"
+    TARGET="rules:#pages#GestionSeance.xhtml"
+    TITLE="#{connectionBean.connecter()}:accepted" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#GestionSeance.xhtml"
+  PATH="/pages/GestionSeance.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

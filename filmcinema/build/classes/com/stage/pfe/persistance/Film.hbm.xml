@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22 janv. 2015 15:05:41 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.stage.pfe.persistance.Film" table="film"
+		catalog="exemplebase2">
+
+		<id name="idfilm" type="java.lang.Integer">
+			<column name="idfilm" />
+			<generator class="increment" />
+		</id>
+
+		<property name="titre" type="string">
+			<column name="titre" length="45" />
+		</property>
+		<property name="annee" type="string">
+			<column name="annee" length="45" />
+		</property>
+		<property name="nom_realisateur" type="string">
+			<column name="nom_realisateur" length="45" />
+		</property>
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<many-to-one name="ville" class="com.stage.pfe.persistance.Ville"
+			fetch="select">
+			<column name="idVille" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

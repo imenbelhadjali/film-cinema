@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Salle</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+
+</h:head>
+<h:body>
+	<div align="center">
+<h:form id="f1">
+<div align="right">
+				<p:commandButton value="Nouveau" icon="ui-icon-plusthick"
+					update=":f1:f2:dialogmodif" oncomplete="PF('dialogmodif').show()"
+					actionListener="#{salleBean.ajouterSalle()}"/>
+			</div>
+		<p:dataTable var="salle" id="tabprof" value="#{salleBean.salles}">
+			<p:column>
+				<f:facet name="header">
+					<h:outputLabel value="idsalles" />
+				</f:facet>
+    #{salle.idsalle}
+</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputLabel value="Salle" />
+				</f:facet>
+    #{salle.nomsalle}
+</p:column>
+
+	<p:column>
+				<f:facet name="header">
+					<h:outputLabel value="Salle" />
+				</f:facet>
+    #{salle.capacite}
+</p:column>
+
+	
+
+
+
+			<p:column style="width:15%">
+				<p:commandButton actionListener="#{salleBean.modifierSalle(salle)}"
+					update=":f1:f2:dialogmodif" oncomplete="PF('dialogmodif').show()"
+					icon="ui-icon-pencil" title="Modification" />
+				<p:commandButton
+					actionListener="#{salleBean.Supprimer(salle.idsalle)}"
+					icon="ui-icon-trash" title="Suppression Salle" update=":f1:tabprof">
+					<p:confirm header="Suppression Salle"
+						message="Voulez-vous vraiment supprimer cette SV ?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+			<p:commandButton value="Oui" type="button"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Non" type="button"
+				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+		<h:form id="f2">
+				<p:dialog widgetVar="dialogmodif" modal="true" closable="false" resizable="false">
+ 
+					<p:panel id="dialogmodif" header="Gesttion des SVs">
+						<h:panelGrid columns="3">
+							<p:outputLabel value="SV" />
+							<p:inputText value="#{salleBean.nomsalle}" id="pro"/>
+							<p:outputLabel>
+							<h:message for="pro"  style="FONT-SIZE: small; 
+							FONT-STYLE: italic; color: red;"/></p:outputLabel>
+							<p:outputPanel/>
+							<p:commandButton value="Valider" icon="ui-icon-check" 
+								actionListener="#{salleBean.validation()}" update=":f1" />
+							<p:commandButton value="Annuler"
+								icon="ui-icon-arrowreturnthick-1-n"
+								
+								oncomplete="dialogmodif.hide()" update=":f1" />
+						</h:panelGrid>
+					</p:panel>
+				</p:dialog>
+			</h:form>
+			
+			</h:form>
+	</div>
+</h:body>
+</html>

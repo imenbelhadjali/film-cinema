@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.password">rootroot</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost/exemplebase2</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.show_sql">false</property>
+  <property name="hibernate.current_session_context_class">thread</property>
+  
+  <mapping class="com.stage.pfe.persistance.Film" resource="com/stage/pfe/persistance/Film.hbm.xml"/>
+  
+   <mapping class="com.stage.pfe.persistance.Cinema" resource="com/stage/pfe/persistance/Cinema.hbm.xml"/>
+    <mapping class="com.stage.pfe.persistance.Seance" resource="com/stage/pfe/persistance/Seance.hbm.xml"/>
+   <mapping class="com.stage.pfe.persistance.salle" resource="com/stage/pfe/persistance/Salle.hbm.xml"/>
+  
+ </session-factory>
+</hibernate-configuration>

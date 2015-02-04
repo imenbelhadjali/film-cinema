@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22 janv. 2015 15:05:41 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.stage.pfe.persistance.Seance" table="seance"
+		catalog="exemplebase2">
+
+		<id name="idseance" type="java.lang.Integer">
+			<column name="idseance" />
+			<generator class="increment" />
+		</id>
+
+		<property name="numseance" type="java.lang.Integer">
+			<column name="numseance" length="45" />
+		</property>
+		<property name="heure_deb" type="string">
+			<column name="heure_deb" length="45" />
+		</property>
+		
+		
+		
+		
+		
+		<many-to-one name="salle" class="com.stage.pfe.persistance.Salle"
+			fetch="select">
+			<column name="idsalle" />
+		</many-to-one>
+		
+		
+		
+		
+		
+		<many-to-one name="film" class="com.stage.pfe.persistance.Film"
+			fetch="select">
+			<column name="idfilm" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>
