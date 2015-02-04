@@ -18,5 +18,8 @@ public class MainTest {
 		
 		for(int i=0;i<l.size();i++)
 			System.out.println(l.get(i).getFilm().getNom_realisateur()+"  "+l.get(i).getSalle().getNomsalle());
+		
+		
+		System.out.println("test1");
 	}
 }
